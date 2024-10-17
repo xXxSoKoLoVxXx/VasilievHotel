@@ -1,0 +1,44 @@
+﻿<Page x:Class="VasilievHotel.Pages.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VasilievHotel.Pages"
+      xmlns:converters="clr-namespace:VasilievHotel.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Authorization" Background="White">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Authorization" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <Grid>
+                <TextBox x:Name="UsernameTextBox" Margin="0,10"/>
+                <TextBlock Text="Username" Foreground="Gray" 
+                           VerticalAlignment="Center" Margin="5,0" 
+                           IsHitTestVisible="False"
+                           Visibility="{Binding Text, ElementName=UsernameTextBox, Converter={StaticResource EmptyTextToVisibilityConverter}}"/>
+            </Grid>
+
+            <Grid>
+                <PasswordBox x:Name="PasswordBox" Margin="0,10"/>
+                <TextBlock Text="Password" Foreground="Gray" 
+                           VerticalAlignment="Center" Margin="5,0" 
+                           IsHitTestVisible="False"
+                           Visibility="{Binding Password, ElementName=PasswordBox, Converter={StaticResource EmptyTextToVisibilityConverter}}"/>
+            </Grid>
+
+            <Button x:Name="LoginButton" Content="Login" Click="LoginButton_Click" Margin="0,10"/>
+        </StackPanel>
+
+        <TextBlock x:Name="ErrorMessage" Text="" Foreground="Red" HorizontalAlignment="Center" Grid.Row="2"/>
+    </Grid>
+</Page>
